@@ -21,4 +21,9 @@ public class Tiers {
 	public void setTier(Number tier) {
 		this.tier = tier;
 	}
+
+	@Override
+	public String toString() {
+		return "Tiers [levels=" + levels + ", tier=" + tier + "]";
+	}
 }

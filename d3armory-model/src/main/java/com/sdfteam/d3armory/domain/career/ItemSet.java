@@ -112,4 +112,13 @@ public class ItemSet {
 		this.neck = neck;
 	}
 
+	@Override
+	public String toString() {
+		return "ItemSet [bracers=" + bracers + ", feet=" + feet + ", hands="
+				+ hands + ", head=" + head + ", legs=" + legs + ", mainHand="
+				+ mainHand + ", offHand=" + offHand + ", torso=" + torso
+				+ ", waist=" + waist + ", rightFinger=" + rightFinger
+				+ ", leftFinger=" + leftFinger + ", neck=" + neck + "]";
+	}
+
 }

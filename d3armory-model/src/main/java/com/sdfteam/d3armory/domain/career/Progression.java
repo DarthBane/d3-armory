@@ -38,4 +38,10 @@ public class Progression {
 		this.inferno = inferno;
 	}
 
+	@Override
+	public String toString() {
+		return "Progression [normal=" + normal + ", nightmare=" + nightmare
+				+ ", hell=" + hell + ", inferno=" + inferno + "]";
+	}
+
 }

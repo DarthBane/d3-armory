@@ -44,4 +44,10 @@ public class DifficultyLevel {
 		this.act4 = act4;
 	}
 
+	@Override
+	public String toString() {
+		return "DifficultyLevel [act1=" + act1 + ", act2=" + act2 + ", act3="
+				+ act3 + ", act4=" + act4 + "]";
+	}
+
 }

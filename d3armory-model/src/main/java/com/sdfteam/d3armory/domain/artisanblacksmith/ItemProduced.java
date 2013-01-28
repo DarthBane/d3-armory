@@ -46,4 +46,12 @@ public class ItemProduced {
 	public void setTooltipParams(String tooltipParams) {
 		this.tooltipParams = tooltipParams;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemProduced [displayColor=" + displayColor + ", icon=" + icon
+				+ ", name=" + name + ", requiredLevel=" + requiredLevel
+				+ ", tooltipParams=" + tooltipParams + "]";
+	}
+	
 }

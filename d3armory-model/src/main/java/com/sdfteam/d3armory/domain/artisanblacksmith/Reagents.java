@@ -19,4 +19,10 @@ public class Reagents {
 	public void setQuantity(Number quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return "Reagents [item=" + item + ", quantity=" + quantity + "]";
+	}
+	
 }

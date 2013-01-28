@@ -37,4 +37,11 @@ public class ArtisanBlacksmith {
 	public void setTraining(Training training) {
 		this.training = training;
 	}
+
+	@Override
+	public String toString() {
+		return "ArtisanBlacksmith [name=" + name + ", portrait=" + portrait
+				+ ", slug=" + slug + ", training=" + training + "]";
+	}
+	
 }

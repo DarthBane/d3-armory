@@ -22,4 +22,10 @@ public class HeroSkillContainer {
 		this.passive = passive;
 	}
 
+	@Override
+	public String toString() {
+		return "HeroSkillContainer [active=" + active + ", passive=" + passive
+				+ "]";
+	}
+
 }

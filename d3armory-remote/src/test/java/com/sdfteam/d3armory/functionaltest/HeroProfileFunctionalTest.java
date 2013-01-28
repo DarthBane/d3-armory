@@ -30,24 +30,28 @@ public class HeroProfileFunctionalTest {
 	}
 
 	@Test
-	public void testGsonFromWeb() throws IllegalAccessException, IOException,
-			InvocationTargetException, NoSuchMethodException {
-
+	public void testGsonFromWeb() throws IllegalAccessException, IOException, InvocationTargetException, NoSuchMethodException {
 		ServiceFactory serviceFactory = new ServiceFactory();
-		RemoteService<CareerProfile> careerService = serviceFactory
-				.getService(CareerProfile.class);
+		RemoteService<CareerProfile> careerService = serviceFactory.getService(CareerProfile.class);
 		try {
+			long t1 = System.currentTimeMillis();
 			CareerProfile career = careerService.receiveEntity(configuration);
-			List<Hero> heroes = career.getHeroes();
-			Hero hero = heroes.get(0);
-			configuration.setHeroId(hero.getId() + 1);
-
-			RemoteService<HeroProfile> heroService = serviceFactory
-					.getService(HeroProfile.class);
-			HeroProfile heroProfile = heroService.receiveEntity(configuration);
-
 			Gson g = new Gson();
-			String json = g.toJson(heroProfile);
+			String json = g.toJson(career);
+			System.out.println("gson:" + json);
+			System.out.println(career.getBattleTag());
+			System.out.println(career.getCode());
+			List<Hero> heroes = career.getHeroes();
+			System.out.println(heroes);
+			Hero hero = heroes.get(0);
+			configuration.setHeroId(hero.getId());
+
+			RemoteService<HeroProfile> heroService = serviceFactory.getService(HeroProfile.class);
+			HeroProfile heroProfile = heroService.receiveEntity(configuration);
+			long t2 = System.currentTimeMillis();
+			System.out.println("Time"+(t2-t1));
+
+			json = g.toJson(heroProfile);
 			System.out.println("gson:" + json);
 
 			String value = heroProfile.getItems().getBracers().getName();

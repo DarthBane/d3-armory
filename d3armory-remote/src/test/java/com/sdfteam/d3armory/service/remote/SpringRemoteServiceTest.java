@@ -29,27 +29,20 @@ public class SpringRemoteServiceTest {
 	@Test
 	public void testReceiveEntityWithGoodResult() throws Exception {
 		// GIVEN
-		ConfigurationService configurationService = PowerMock
-				.createMock(ConfigurationService.class);
+		ConfigurationService configurationService = PowerMock.createMock(ConfigurationService.class);
 		Configuration configuration = PowerMock.createMock(Configuration.class);
 		RestTemplate restTemplate = PowerMock.createMock(RestTemplate.class);
-		SpringGsonConverter<TestEntity> gsonConverter = PowerMock
-				.createMock(SpringGsonConverter.class);
-		ResponseEntity<TestEntity> responseEntity = PowerMock
-				.createMock(ResponseEntity.class);
+		SpringGsonConverter<TestEntity> gsonConverter = PowerMock.createMock(SpringGsonConverter.class);
+		ResponseEntity<TestEntity> responseEntity = PowerMock.createMock(ResponseEntity.class);
 		TestEntity result = new TestEntity();
 
 		// EXPECT
-		PowerMock.expectNew(ConfigurationService.class).andReturn(
-				configurationService);
-		PowerMock.expectNew(SpringGsonConverter.class, TestEntity.class)
-				.andReturn(gsonConverter);
+		PowerMock.expectNew(ConfigurationService.class).andReturn(configurationService);
+		PowerMock.expectNew(SpringGsonConverter.class, TestEntity.class).andReturn(gsonConverter);
 		PowerMock.expectNew(RestTemplate.class).andReturn(restTemplate);
-		expect(configurationService.decorateUrl(FOO_BAR_URL, configuration))
-				.andReturn(BAR_FOO_URL);
+		expect(configurationService.decorateUrl(FOO_BAR_URL, configuration)).andReturn(BAR_FOO_URL);
 		restTemplate.setMessageConverters(EasyMock.anyObject(List.class));
-		expect(restTemplate.getForEntity(BAR_FOO_URL, TestEntity.class))
-				.andReturn(responseEntity);
+		expect(restTemplate.getForEntity(BAR_FOO_URL, TestEntity.class)).andReturn(responseEntity);
 		expect(responseEntity.getBody()).andReturn(result);
 
 		PowerMock.replay(RestTemplate.class, ConfigurationService.class,
@@ -57,8 +50,7 @@ public class SpringRemoteServiceTest {
 				configurationService, configuration, gsonConverter);
 
 		// WHEN
-		SpringRemoteService<TestEntity> sut = new SpringRemoteService<TestEntity>(
-				TestEntity.class);
+		SpringRemoteService<TestEntity> sut = new SpringRemoteService<TestEntity>(TestEntity.class);
 		TestEntity receiveEntity = sut.receiveEntity(configuration);
 
 		// THEN

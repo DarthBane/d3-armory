@@ -145,4 +145,18 @@ public class Stats {
 	public void setVitality(Number vitality) {
 		this.vitality = vitality;
 	}
+
+	@Override
+	public String toString() {
+		return "Stats [arcaneResist=" + arcaneResist + ", armor=" + armor
+				+ ", coldResist=" + coldResist + ", critChance=" + critChance
+				+ ", damage=" + damage + ", damageIncrease=" + damageIncrease
+				+ ", damageReduction=" + damageReduction + ", dexterity="
+				+ dexterity + ", fireResist=" + fireResist + ", intelligence="
+				+ intelligence + ", life=" + life + ", lightningResist="
+				+ lightningResist + ", physicalResist=" + physicalResist
+				+ ", poisonResist=" + poisonResist + ", strength=" + strength
+				+ ", vitality=" + vitality + "]";
+	}
+	
 }

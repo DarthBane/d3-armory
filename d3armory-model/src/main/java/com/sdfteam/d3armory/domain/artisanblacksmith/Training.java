@@ -12,4 +12,10 @@ public class Training {
 	public void setTiers(List<Tiers> tiers) {
 		this.tiers = tiers;
 	}
+
+	@Override
+	public String toString() {
+		return "Training [tiers=" + tiers + "]";
+	}
+	
 }

@@ -57,4 +57,12 @@ public class Item {
 	public void setRequiredLevel(Number requiredLevel) {
 		this.requiredLevel = requiredLevel;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [displayColor=" + displayColor + ", icon=" + icon
+				+ ", name=" + name + ", tooltipParams=" + tooltipParams
+				+ ", requiredLevel=" + requiredLevel + "]";
+	}
+	
 }

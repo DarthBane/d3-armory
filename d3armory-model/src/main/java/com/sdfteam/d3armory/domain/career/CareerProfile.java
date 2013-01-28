@@ -9,14 +9,14 @@ import com.sdfteam.d3armory.service.remote.RemoteEntity;
  * Retrieves CareerProfile battletag-name ::= <regional battletag allowed
  * characters> battletag-code ::= <integer> url ::= <host> "/api/d3/profile/"
  * <battletag-name> "-" <battletag-code> "/"
- * 
+ *
  * @author NoTiCe
  */
 @RemoteConfiguration(url = "http://<host>/api/d3/profile/<battletag-name>-<battletag-code>/")
 public class CareerProfile extends RemoteEntity {
 	private List<Artisans> artisans;
 	private String battleTag;
-	private List<ItemSet> Itemes;
+	private List<ItemSet> items;
 	private List<Artisans> hardcoreArtisans;
 	private Progression hardcoreProgression;
 	private List<Hero> heroes;
@@ -42,8 +42,12 @@ public class CareerProfile extends RemoteEntity {
 		this.battleTag = battleTag;
 	}
 
-	public List<ItemSet> getItemes() {
-		return this.Itemes;
+	public List<ItemSet> getItems() {
+		return this.items;
+	}
+
+	public void setItems(List<ItemSet> items) {
+		this.items = items;
 	}
 
 	public KillsInfo getKills() {
@@ -52,10 +56,6 @@ public class CareerProfile extends RemoteEntity {
 
 	public void setKills(KillsInfo kills) {
 		this.kills = kills;
-	}
-
-	public void setItemes(List<ItemSet> Itemes) {
-		this.Itemes = Itemes;
 	}
 
 	public List<Artisans> getHardcoreArtisans() {
@@ -112,5 +112,16 @@ public class CareerProfile extends RemoteEntity {
 
 	public void setTimePlayed(TimePlayed timePlayed) {
 		this.timePlayed = timePlayed;
+	}
+
+	@Override
+	public String toString() {
+		return "CareerProfile [artisans=" + artisans + ", battleTag="
+				+ battleTag + ", items=" + items + ", hardcoreArtisans="
+				+ hardcoreArtisans + ", hardcoreProgression="
+				+ hardcoreProgression + ", heroes=" + heroes + ", kills="
+				+ kills + ", lastHeroPlayed=" + lastHeroPlayed
+				+ ", lastUpdated=" + lastUpdated + ", progression="
+				+ progression + ", timePlayed=" + timePlayed + "]";
 	}
 }

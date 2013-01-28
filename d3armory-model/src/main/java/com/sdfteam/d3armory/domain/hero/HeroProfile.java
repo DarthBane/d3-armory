@@ -130,4 +130,14 @@ public class HeroProfile extends RemoteEntity {
 		this.stats = stats;
 	}
 
+	@Override
+	public String toString() {
+		return "HeroProfile [clazz=" + clazz + ", followers=" + followers
+				+ ", gender=" + gender + ", hardcore=" + hardcore + ", id="
+				+ id + ", items=" + items + ", kills=" + kills
+				+ ", lastUpdated=" + lastUpdated + ", level=" + level
+				+ ", name=" + name + ", progress=" + progress + ", skills="
+				+ skills + ", stats=" + stats + "]";
+	}
+
 }

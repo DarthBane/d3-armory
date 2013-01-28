@@ -1,13 +1,18 @@
 package com.sdfteam.d3armory.domain.career;
 
-public class Hero {
+import com.google.gson.annotations.SerializedName;
+
+public class Hero{
 	private String name;
 	private Long id;
 	private Number level;
 	private Boolean hardcore;
+	private Number paragonLevel;
 	private Number gender;
-	private Number lastUpdated;
 	private Boolean dead;
+	private Number lastUpdated;
+	@SerializedName(value="class")
+	private String clazz;
 
 	public String getName() {
 		return name;
@@ -63,6 +68,28 @@ public class Hero {
 
 	public void setDead(Boolean dead) {
 		this.dead = dead;
+	}
+
+	public Number getParagonLevel() {
+		return paragonLevel;
+	}
+
+	public void setParagonLevel(Number paragonLevel) {
+		this.paragonLevel = paragonLevel;
+	}
+
+	public String getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
+
+	@Override
+	public String toString() {
+		return "Hero [name=" + name + ", id=" + id + ", level=" + level + ", paragonLevel=" + paragonLevel + ", hardcore=" + hardcore + ", gender="
+				+ gender + ", lastUpdated=" + lastUpdated + ", dead=" + dead + ", clazz=" + clazz + "]";
 	}
 
 }

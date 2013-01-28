@@ -27,4 +27,11 @@ public class Act {
 	public void setCompletedQuests(List<Quest> completedQuests) {
 		this.completedQuests = completedQuests;
 	}
+
+	@Override
+	public String toString() {
+		return "Act [completed=" + completed + ", completedQuests="
+				+ completedQuests + "]";
+	}
+	
 }

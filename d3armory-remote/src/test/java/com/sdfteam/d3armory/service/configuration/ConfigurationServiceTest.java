@@ -27,8 +27,7 @@ public class ConfigurationServiceTest {
 		ConfigurationService sut = new ConfigurationService();
 
 		// EXPECT
-		expect(conf.entrySet())
-				.andReturn((Set<Entry<String, Object>>) entrySet);
+		expect(conf.entrySet()).andReturn((Set<Entry<String, Object>>) entrySet);
 		expect(entry.getKey()).andReturn("[x]").anyTimes();
 		expect(entry.getValue()).andReturn("bar").anyTimes();
 

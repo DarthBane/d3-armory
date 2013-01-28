@@ -37,4 +37,11 @@ public class Artisans {
 	public void setStepMurrent(Number stepMurrent) {
 		this.stepMurrent = stepMurrent;
 	}
+
+	@Override
+	public String toString() {
+		return "Artisans [level=" + level + ", slug=" + slug + ", stepMax="
+				+ stepMax + ", stepMurrent=" + stepMurrent + "]";
+	}
+
 }

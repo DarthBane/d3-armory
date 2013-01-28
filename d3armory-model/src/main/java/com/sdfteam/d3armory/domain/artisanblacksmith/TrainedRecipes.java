@@ -48,4 +48,11 @@ public class TrainedRecipes {
 	public void setSlug(String slug) {
 		this.slug = slug;
 	}
+
+	@Override
+	public String toString() {
+		return "TrainedRecipes [cost=" + cost + ", itemProduced="
+				+ itemProduced + ", name=" + name + ", reagents=" + reagents
+				+ ", slug=" + slug + "]";
+	}
 }

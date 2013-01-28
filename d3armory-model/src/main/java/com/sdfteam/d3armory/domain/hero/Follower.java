@@ -40,4 +40,10 @@ public class Follower {
 		this.slug = slug;
 	}
 
+	@Override
+	public String toString() {
+		return "Follower [items=" + items + ", level=" + level + ", skills="
+				+ skills + ", slug=" + slug + "]";
+	}
+
 }

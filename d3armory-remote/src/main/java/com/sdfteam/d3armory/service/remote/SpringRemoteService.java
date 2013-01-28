@@ -17,14 +17,13 @@ import com.sdfteam.d3armory.service.util.AnnotationUtils;
 /**
  * An Remote service provides access to entities trough Spring RestTemplate and
  * GSon.
- * 
+ *
  * @author NoTiCe
- * 
+ *
  * @param <T extends RemoteEntity> The type of the entity. Must be a
  *        RemoteEntity
  */
-public class SpringRemoteService<T extends RemoteEntity> implements
-		RemoteService<T> {
+public class SpringRemoteService<T extends RemoteEntity> implements RemoteService<T> {
 
 	private Class<T> clazz;
 	private ConfigurationService configurationService;
@@ -33,29 +32,27 @@ public class SpringRemoteService<T extends RemoteEntity> implements
 
 	/**
 	 * Creates the service, initializes messageConverters.
-	 * 
+	 *
 	 * @param clazz
 	 *            The class of the remote service response.
 	 */
 	public SpringRemoteService(Class<T> clazz) {
 		this.clazz = clazz;
 		if (!AnnotationUtils.hasAnnotation(clazz, RemoteConfiguration.class)) {
-			throw new IllegalArgumentException("Class " + clazz
-					+ " must have a configuration annotation.");
+			throw new IllegalArgumentException("Class " + clazz	+ " must have a configuration annotation.");
 		}
 		configurationService = new ConfigurationService();
 		messageConverters = new ArrayList<HttpMessageConverter<?>>();
 		messageConverters.add(new SpringGsonConverter<T>(clazz));
 	}
 
-	public T receiveEntity(Configuration configuration)
-			throws D3ServerCommunicationException {
-		RemoteConfiguration annotation = clazz
-				.getAnnotation(RemoteConfiguration.class);
+	@Override
+	public T receiveEntity(Configuration configuration) throws D3ServerCommunicationException {
+		RemoteConfiguration annotation = clazz.getAnnotation(RemoteConfiguration.class);
 		T result = null;
 		try {
-			result = receiveEntity(configurationService.decorateUrl(
-					annotation.url(), configuration));
+			String decoratedUrl = configurationService.decorateUrl(annotation.url(), configuration);
+			result = receiveEntity(decoratedUrl);
 		} catch (RuntimeException rae) {
 			Throwable cause = rae.getCause();
 			if (cause instanceof D3ServerCommunicationException) {
@@ -65,7 +62,6 @@ public class SpringRemoteService<T extends RemoteEntity> implements
 			}
 		}
 		return result;
-
 	}
 
 	private T receiveEntity(String url) {

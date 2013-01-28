@@ -55,4 +55,12 @@ public class Skill {
 	public void setTooltipParams(String tooltipParams) {
 		this.tooltipParams = tooltipParams;
 	}
+
+	@Override
+	public String toString() {
+		return "Skill [description=" + description + ", icon=" + icon
+				+ ", name=" + name + ", simpleDescription=" + simpleDescription
+				+ ", slug=" + slug + ", tooltipParams=" + tooltipParams + "]";
+	}
+
 }

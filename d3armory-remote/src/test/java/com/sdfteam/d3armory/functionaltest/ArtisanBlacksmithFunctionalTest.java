@@ -14,9 +14,9 @@ import com.sdfteam.d3armory.service.remote.ServiceFactory;
 import com.sdfteam.d3armory.service.remote.exception.D3ServerCommunicationException;
 
 public class ArtisanBlacksmithFunctionalTest {
+
 	@Test
-	public void testGsonFromWebWithSuccess() throws IllegalAccessException,
-			InvocationTargetException, NoSuchMethodException, IOException {
+	public void testGsonFromWebWithSuccess() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, IOException {
 		ServiceFactory serviceFactory = new ServiceFactory();
 
 		Configuration configuration = new Configuration();
@@ -24,9 +24,9 @@ public class ArtisanBlacksmithFunctionalTest {
 		configuration.setBattleTagCode(TestConfig.TAG_CODE);
 		configuration.setHost(TestConfig.SERVER_HOST);
 
-		RemoteService<CareerProfile> careerService = serviceFactory
-				.getService(CareerProfile.class);
+		RemoteService<CareerProfile> careerService = serviceFactory.getService(CareerProfile.class);
 		CareerProfile career = careerService.receiveEntity(configuration);
+		System.out.println("career:" + career);
 
 		Gson g = new Gson();
 		String json = g.toJson(career);
@@ -34,8 +34,7 @@ public class ArtisanBlacksmithFunctionalTest {
 	}
 
 	@Test(expected = D3ServerCommunicationException.class)
-	public void testGsonFromWebWithError() throws IllegalAccessException,
-			InvocationTargetException, NoSuchMethodException, IOException {
+	public void testGsonFromWebWithError() throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, IOException {
 		ServiceFactory serviceFactory = new ServiceFactory();
 
 		Configuration configuration = new Configuration();
@@ -43,8 +42,7 @@ public class ArtisanBlacksmithFunctionalTest {
 		configuration.setBattleTagCode(1111L);
 		configuration.setHost("eu.battle.net");
 
-		RemoteService<CareerProfile> careerService = serviceFactory
-				.getService(CareerProfile.class);
+		RemoteService<CareerProfile> careerService = serviceFactory.getService(CareerProfile.class);
 		CareerProfile career = careerService.receiveEntity(configuration);
 
 		Gson g = new Gson();

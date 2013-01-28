@@ -28,4 +28,10 @@ public class FollowersList {
 	public void setTemplar(Follower templar) {
 		this.templar = templar;
 	}
+
+	@Override
+	public String toString() {
+		return "FollowersList [enchantress=" + enchantress + ", scoundrel="
+				+ scoundrel + ", templar=" + templar + "]";
+	}
 }

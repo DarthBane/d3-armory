@@ -51,4 +51,11 @@ public class TimePlayed {
 		this.wizard = wizard;
 	}
 
+	@Override
+	public String toString() {
+		return "TimePlayed [barbarian=" + barbarian + ", demonHunter="
+				+ demonHunter + ", monk=" + monk + ", witchDoctor="
+				+ witchDoctor + ", wizard=" + wizard + "]";
+	}
+	
 }

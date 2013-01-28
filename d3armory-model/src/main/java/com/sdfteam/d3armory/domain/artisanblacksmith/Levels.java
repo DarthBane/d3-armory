@@ -58,4 +58,12 @@ public class Levels {
 		this.upgradeCost = upgradeCost;
 	}
 
+	@Override
+	public String toString() {
+		return "Levels [percent=" + percent + ", taughtRecipes="
+				+ taughtRecipes + ", tier=" + tier + ", tierLevel=" + tierLevel
+				+ ", trainedRecipes=" + trainedRecipes + ", upgradeCost="
+				+ upgradeCost + "]";
+	}
+
 }

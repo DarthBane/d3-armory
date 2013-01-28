@@ -20,4 +20,9 @@ public class Quest {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Quest [slug=" + slug + ", name=" + name + "]";
+	}
+
 }

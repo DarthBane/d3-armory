@@ -10,4 +10,10 @@ public class KillsInfo {
 	public void setElites(Number elites) {
 		this.elites = elites;
 	}
+
+	@Override
+	public String toString() {
+		return "KillsInfo [elites=" + elites + "]";
+	}
+	
 }

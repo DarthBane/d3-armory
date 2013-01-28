@@ -49,4 +49,11 @@ public class FollowerItemSet {
 		this.rightFinger = rightFinger;
 	}
 
+	@Override
+	public String toString() {
+		return "FollowerItemSet [leftFinger=" + leftFinger + ", mainHand="
+				+ mainHand + ", neck=" + neck + ", offHand=" + offHand
+				+ ", rightFinger=" + rightFinger + "]";
+	}
+
 }

@@ -1,18 +1,21 @@
 package com.sdfteam.d3armory.domain.hero;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class HeroSkillContainer {
-	private List<Skill> active;
-	private List<Skill> passive;
+    @SerializedName("active")
+    private List<SkillElement> skillElement;
+    private List<Skill> passive;
 
-	public List<Skill> getActive() {
-		return active;
-	}
+    public List<SkillElement> getSkillElement() {
+        return skillElement;
+    }
 
-	public void setActive(List<Skill> active) {
-		this.active = active;
-	}
+    public void setSkillElement(List<SkillElement> skillElement) {
+        this.skillElement = skillElement;
+    }
 
 	public List<Skill> getPassive() {
 		return passive;
@@ -24,7 +27,7 @@ public class HeroSkillContainer {
 
 	@Override
 	public String toString() {
-		return "HeroSkillContainer [active=" + active + ", passive=" + passive
+		return "HeroSkillContainer [active=" + skillElement.toString() + ", passive=" + passive
 				+ "]";
 	}
 

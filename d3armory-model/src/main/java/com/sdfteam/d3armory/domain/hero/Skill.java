@@ -7,8 +7,35 @@ public class Skill {
 	private String simpleDescription;
 	private String slug;
 	private String tooltipParams;
+    private int level;
+    private String categorySlug;
+    private String skillCalcId;
 
-	public String getDescription() {
+    public String getSkillCalcId() {
+        return skillCalcId;
+    }
+
+    public void setSkillCalcId(String skillCalcId) {
+        this.skillCalcId = skillCalcId;
+    }
+
+    public String getCategorySlug() {
+        return categorySlug;
+    }
+
+    public void setCategorySlug(String categorySlug) {
+        this.categorySlug = categorySlug;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getDescription() {
 		return this.description;
 	}
 

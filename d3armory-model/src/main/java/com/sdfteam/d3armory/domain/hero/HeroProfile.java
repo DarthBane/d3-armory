@@ -21,9 +21,9 @@ public class HeroProfile extends RemoteEntity {
 	@SerializedName("last-updated")
 	private Number lastUpdated;
 	private Number level;
+    private HeroSkillContainer skills;
 	private String name;
 	private Progression progress;
-	private HeroSkillContainer skills;
 	private Stats stats;
 
 	public String getClazz() {
